@@ -21,12 +21,12 @@ namespace PierresBakery.Controllers
             Order order = Order.Find(orderId);
             Vendor vendor = Vendor.Find(vendorId);
             Dictionary<string, object> vendorList = new Dictionary<string, object>();
-            vendorList.Add("order", order);
-            vendorList.Add("vendor", vendor);
+            vendorList.Add("orders", order);
+            vendorList.Add("vendors", vendor);
             return View(vendorList);
         }
 
-         [HttpPost("orders/delete")]
+         [HttpPost("/orders/delete")]
         public ActionResult DeleteAll()
         {
             Order.ClearAll();

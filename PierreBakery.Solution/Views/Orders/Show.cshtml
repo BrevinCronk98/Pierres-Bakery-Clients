@@ -10,9 +10,9 @@
     <body>
         <div class="container">
             <h2>@Model["orders"].Description</h2>
-            <h3>Vendor: @Model["vendor"].Name</h3>
+            <h3>Vendor: @Model["vendors"].Name</h3>
 
-            <button onclick='window.location ="/vendors/@Model["vendor"].Id/orders/new"'> Add another Order</button>
+            <button onclick='window.location ="/vendors/@Model["vendors"].Id/orders/new"'> Add another Order</button>
             <button onclick='window.location ="/vendors"'> View All Vendors </button>
 
         </form>

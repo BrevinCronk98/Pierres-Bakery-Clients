@@ -11,13 +11,13 @@
         <div class="container">
            <h3> Here are all the Orders in this Vendor:</h3>
            <ol>
-           @foreach(Order order in @Model["orders"])
+           @foreach(var order in @Model["orders"])
            {
-               <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Description</a></li>
+               <li><a href='/vendors/@Model["vendors"].Id/orders/@order.Id'>@order.Description</a></li>
            }
            </ol>
 
-        <button onclick='window.location="/vendors/@Model["vendor"].Id/orders/new"'>Add a new Order</button>
+        <button onclick='window.location="/vendors/@Model["vendors"].Id/orders/new"'>Add a new Order</button>
         <button onclick='window.location="/vendors"'>Return to Vendor</button>
         <button onclick='window.location="/"'>Return Home</button>
         </div>

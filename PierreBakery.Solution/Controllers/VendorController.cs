@@ -27,6 +27,13 @@ namespace PierresBakery.Controllers
         Vendor newVendor = new Vendor(vendorName);
         return RedirectToAction("Index");
     }
+    
+    [HttpPost("/vendors/delete")]
+    public ActionResult DeleteAll()
+    {
+        Vendor.ClearAll();
+        return RedirectToAction("Index");
+    }
 
     [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
@@ -34,7 +41,7 @@ namespace PierresBakery.Controllers
         Dictionary<string, object> vendorList = new Dictionary<string, object>();
         Vendor selectedVendor = Vendor.Find(id);
         List<Order> vendorOrders = selectedVendor.Orders;
-        vendorList.Add("vendor", selectedVendor);
+        vendorList.Add("vendors", selectedVendor);
         vendorList.Add("orders", vendorOrders);
         return View(vendorList);
     }
@@ -45,9 +52,10 @@ namespace PierresBakery.Controllers
        Dictionary<string, object> vendorList = new Dictionary<string, object>();
        Vendor foundVendor = Vendor.Find(vendorId);
        Order newOrder = new Order(orderDescription);
+       foundVendor.AddOrder(newOrder);
        List<Order> vendorOrders = foundVendor.Orders;
-       vendorList.Add("order", vendorOrders);
-       vendorList.Add("vendor", foundVendor);
+       vendorList.Add("orders", vendorOrders);
+       vendorList.Add("vendors", foundVendor);
        return View("Show", vendorList);
     }
   }
