@@ -14,7 +14,7 @@ namespace PierresBakery.Controllers
             return View(allOrders);
         }
 
-        [HttpGet("/orders/new")]
+        [HttpGet("/vendors/{vendorId}/orders/new")]
         public ActionResult New()
         {
             return View();
@@ -32,6 +32,17 @@ namespace PierresBakery.Controllers
         {
             Order.ClearAll();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet("/vendors/{vendorId}/orders/{orderId")]
+        public ActionResult Show(int vendorId, int orderId)
+        {
+            Order order = Order.Find(orderId);
+            Vendor vendor = Vendor.Find(vendorId);
+            Dictionary<string, object> vendorList = new Dictionary<string, object>();
+            vendorList.Add("order", order);
+            vendorList.Add("vendor", vendor);
+            return View(vendorList);
         }
     }
 }

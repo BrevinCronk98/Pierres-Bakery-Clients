@@ -1,0 +1,26 @@
+@using PierresBakery.Models;
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Pierres Client Tracker</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    </head>
+    <body>
+        <div class="container">
+           <h3> Here are all the Orders in this Vendor:</h3>
+           <ol>
+           @foreach(Order order in @Model["orders"])
+           {
+               <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Description</a></li>
+           }
+           </ol>
+
+        <button onclick='window.location="vendors/@Model["vendor"].Id/orders/new"'>Add a new Order</button>
+        <button onclick='window.location="vendors"'>Return to Vendor</button>
+        <button onclick='window.location="/"'>Return Home</button>
+        </div>
+    </body>
+
+</html>

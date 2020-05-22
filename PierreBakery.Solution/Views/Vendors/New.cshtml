@@ -1,3 +1,4 @@
+@using PierresBakery.Models;
 
 <!DOCTYPE html>
 <html>
@@ -8,9 +9,11 @@
     </head>
     <body>
         <div class="container">
-            <h1>This is where you can start managing!</h3>
-            <br>
-            <a href="/orders/new"> Click Here!</a>
+            <form action="/vendors" method="post">
+            <label for="vendorName">Add a New Vendor</label>
+            <input id="vendorname" name="VendorName" type="text">
+            <button type="submit">Submit</button>
+        </form>
         </div>
     </body>
 

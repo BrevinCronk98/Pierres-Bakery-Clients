@@ -9,10 +9,12 @@
     </head>
     <body>
         <div class="container">
-            <form action="/orders" method="post">
-            <label for="description">Add a New Decription or Item for the Vendor!</label>
-            <input id="description" name="description" type="text">
-            <button type="submit">Submit</button>
+            <h2>@Model["item"].Description</h2>
+            <h3>Vendor: @Model["vendor"].Name</h3>
+
+            <button onclick='window.location ="/vendors/@Model["vendor"].Id/orders/new"'> Add another Order</button>
+            <button onclick='window.location ="/vendors"'> View All Vendors </button>
+
         </form>
         </div>
     </body>
