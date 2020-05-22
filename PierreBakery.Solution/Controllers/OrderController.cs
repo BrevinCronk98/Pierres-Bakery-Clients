@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using PierresBakery.Models;
 using System.Collections.Generic;
+using System;
 
-namespace Pierres.Controllers
+namespace PierresBakery.Controllers
 {
     public class OrderController : Controller
     {
@@ -16,7 +17,7 @@ namespace Pierres.Controllers
         [HttpGet("/orders/new")]
         public ActionResult New()
         {
-            return View("New");
+            return View();
         }
     }
 }

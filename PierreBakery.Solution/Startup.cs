@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Dealership.Models
+namespace PierresBakery.Models
 {
     public class Startup
     {
@@ -27,7 +27,7 @@ namespace Dealership.Models
             {
                 routes.MapRoute(
                     name:"default",
-                    template:"{controller=home}/{action=Index}/{id?}");
+                    template:"{controller=Home}/{action=Index}/{id?}");
             });
 
             app.Run(async (context) =>
