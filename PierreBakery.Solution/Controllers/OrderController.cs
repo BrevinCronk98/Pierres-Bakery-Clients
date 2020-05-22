@@ -7,34 +7,15 @@ namespace PierresBakery.Controllers
 {
     public class OrdersController : Controller
     {
-        [HttpGet("/orders")]
-        public ActionResult Index()
-        {
-            List<Order> allOrders = Order.GetAll();
-            return View(allOrders);
-        }
-
+        
         [HttpGet("/vendors/{vendorId}/orders/new")]
-        public ActionResult New()
+        public ActionResult New(int vendorId)
         {
-            return View();
+            Vendor vendor = Vendor.Find(vendorId);
+            return View(vendor);
         }
 
-        [HttpPost("/orders")]
-        public ActionResult Create(string description)
-        {
-            Order myOrder = new Order(description);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost("orders/delete")]
-        public ActionResult DeleteAll()
-        {
-            Order.ClearAll();
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet("/vendors/{vendorId}/orders/{orderId")]
+        [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
         public ActionResult Show(int vendorId, int orderId)
         {
             Order order = Order.Find(orderId);
@@ -44,5 +25,13 @@ namespace PierresBakery.Controllers
             vendorList.Add("vendor", vendor);
             return View(vendorList);
         }
+
+         [HttpPost("orders/delete")]
+        public ActionResult DeleteAll()
+        {
+            Order.ClearAll();
+            return RedirectToAction("Index");
+        }
+
     }
 }

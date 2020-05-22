@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="container">
-            <h2>@Model["item"].Description</h2>
+            <h2>@Model["orders"].Description</h2>
             <h3>Vendor: @Model["vendor"].Name</h3>
 
             <button onclick='window.location ="/vendors/@Model["vendor"].Id/orders/new"'> Add another Order</button>

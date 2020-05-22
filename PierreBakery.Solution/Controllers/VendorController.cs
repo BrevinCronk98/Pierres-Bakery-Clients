@@ -38,6 +38,17 @@ namespace PierresBakery.Controllers
         vendorList.Add("orders", vendorOrders);
         return View(vendorList);
     }
-
+    
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string orderDescription)
+    {
+       Dictionary<string, object> vendorList = new Dictionary<string, object>();
+       Vendor foundVendor = Vendor.Find(vendorId);
+       Order newOrder = new Order(orderDescription);
+       List<Order> vendorOrders = foundVendor.Orders;
+       vendorList.Add("order", vendorOrders);
+       vendorList.Add("vendor", foundVendor);
+       return View("Show", vendorList);
+    }
   }
 }
