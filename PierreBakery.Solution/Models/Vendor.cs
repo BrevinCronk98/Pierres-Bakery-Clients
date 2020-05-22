@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 
-namespace PierreBakery.Vendors.Models
+namespace PierresBakery.Models
 {
   public class Vendor
   {
@@ -9,9 +10,9 @@ namespace PierreBakery.Vendors.Models
     public int Id { get; }
     public List<Order> Orders { get; set; }
 
-    public Vendor(string cendorName)
+    public Vendor(string vendorName)
     {
-      Name = categoryName;
+      Name = vendorName;
       _instances.Add(this);
       Id = _instances.Count;
       Orders = new List<Order>{};
@@ -22,19 +23,19 @@ namespace PierreBakery.Vendors.Models
       _instances.Clear();
     }
 
-    public static List<Order> GetAll()
+    public static List<Vendor> GetAll()
     {
       return _instances;
     }
 
-    public static Order Find(int searchId)
+    public static Vendor Find(int searchId)
     {
       return _instances[searchId - 1];
     }
 
     public void AddOrder(Order order)
     {
-      Order.Add(order);
+      Orders.Add(order);
     }
    
   }

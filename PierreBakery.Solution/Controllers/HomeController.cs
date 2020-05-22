@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using PierresBakery.Models;
+using System.Collections.Generic;
 
-namespace PierresBakery.Home.Controllers
+
+namespace PierresBakery.Controllers
 {
     public class HomeController : Controller
     {

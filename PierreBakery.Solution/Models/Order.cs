@@ -8,7 +8,7 @@ namespace PierresBakery.Models
     {
         public string Description {get; set;}
         public int Id {get;}
-        private static List<Order> _instances = new List<Item>{};
+        private static List<Order> _instances = new List<Order>{};
 
         public Order(string description)
         {
@@ -26,7 +26,7 @@ namespace PierresBakery.Models
         {
             _instances.Clear();
         }
-        public static Item Find(int searchId)
+        public static Order Find(int searchId)
         {
             return _instances[searchId - 1];
         }
