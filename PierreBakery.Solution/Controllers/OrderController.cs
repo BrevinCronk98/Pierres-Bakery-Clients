@@ -5,7 +5,7 @@ using System;
 
 namespace PierresBakery.Controllers
 {
-    public class OrderController : Controller
+    public class OrdersController : Controller
     {
         [HttpGet("/orders")]
         public ActionResult Index()
