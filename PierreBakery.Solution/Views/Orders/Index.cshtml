@@ -9,6 +9,7 @@
     </head>
     <body>
         <div class="container">
+        <h1> Orders!!</h1>
             @if (Model.Count == 0)
             {
                 <p>There are no items in the list. </p>
@@ -19,9 +20,11 @@
                 <li>@order.Description </li>
             }
             </ul>
-<a href="/items/new"> Add a new item!.</a>
+            <button onclick='window.location="/orders/new"'> Add a new item!.</a>
 
-<form action="/items/delete" method="post">
+            <form action="/orders/delete" method="post">
+            <button type="submit" name="delete">Clear List</button>
+            </form>
         </div>
     </body>
 </html>

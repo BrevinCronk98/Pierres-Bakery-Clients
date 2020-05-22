@@ -19,5 +19,19 @@ namespace PierresBakery.Controllers
         {
             return View();
         }
+
+        [HttpPost("/orders")]
+        public ActionResult Create(string description)
+        {
+            Order myOrder = new Order(description);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost("orders/delete")]
+        public ActionResult DeleteAll()
+        {
+            Order.ClearAll();
+            return RedirectToAction("Index");
+        }
     }
 }
