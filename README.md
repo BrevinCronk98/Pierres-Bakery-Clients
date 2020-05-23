@@ -2,7 +2,7 @@
 
 #### _Users can help out the owner of the bakery keep track of all of the orders he is recieving from other vendors. May 22th, 2020_
 
-#### By Brevin Cronk_
+#### By Brevin Cronk
 
 ## Description
 
